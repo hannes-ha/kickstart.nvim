@@ -190,6 +190,9 @@ vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right win
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
+-- Ctrl-q to close current buffer
+vim.keymap.set('n', '<C-q>', ':bd<CR>')
+
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
@@ -262,6 +265,7 @@ require('lazy').setup({
           vim.keymap.set(mode, l, r, opts)
         end
         local gitsigns = require 'gitsigns'
+        map('n', '<leader>hn', gitsigns.next_hunk)
         map('n', '<leader>hs', gitsigns.stage_hunk)
         map('n', '<leader>hr', gitsigns.reset_hunk)
         map('v', '<leader>hs', function()
@@ -520,7 +524,7 @@ require('lazy').setup({
 
           -- Execute a code action, usually your cursor needs to be on top of an error
           -- or a suggestion from your LSP for this to activate.
-          map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
+          map('x1337', vim.lsp.buf.code_action, '[C]ode [A]ction') -- Hack to circumvent <C-.> issue in nvim. Relies on kitty sending x1337 on <C-.>
 
           -- Opens a popup that displays documentation about the word under your cursor
           --  See `:help K` for why this keymap.
