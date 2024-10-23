@@ -1,6 +1,5 @@
 return {
   'kdheepak/lazygit.nvim',
-  lazy = true,
   cmd = {
     'LazyGit',
     'LazyGitConfig',
@@ -17,4 +16,12 @@ return {
   keys = {
     { '<leader>lg', '<cmd>LazyGit<cr>', desc = 'LazyGit' },
   },
+
+  config = function()
+    local home = os.getenv 'HOME'
+    vim.g.lazygit_floating_window_use_plenary = 1
+    vim.g.lazygit_use_custom_config_file_path = 1 -- config file path is evaluated if this value is 1
+    vim.g.lazygit_config_file_path = home .. '/.config/lazygit/config.yml' -- custom config file path
+    require('telescope').setup {}
+  end,
 }
