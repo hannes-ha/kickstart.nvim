@@ -42,23 +42,37 @@ local function my_on_attach(bufnr)
   vim.keymap.set('n', 'L', vsplit_preview, opts 'Preview in split')
   vim.keymap.set('n', 'h', api.tree.close, opts 'Close')
   vim.keymap.set('n', 'H', api.tree.collapse_all, opts 'Collapse all')
+
+  -- Unbind ctrl-e to let telescope have it
+  vim.keymap.del('n', '<C-e>', { buffer = bufnr })
 end
 
 return {
   'nvim-tree/nvim-tree.lua',
   version = '*',
   lazy = false,
-  dependencies = {
-    'nvim-tree/nvim-web-devicons',
-  },
   config = function()
     -- global
-    vim.api.nvim_set_keymap('n', '<leader>e', ':NvimTreeToggle<cr>', { silent = true, noremap = true })
+    vim.api.nvim_set_keymap('n', '<leader>e', ':NvimTreeFindFileToggle<cr>', { silent = true, noremap = true })
 
     -- on_attach
-
     require('nvim-tree').setup {
       on_attach = my_on_attach,
+      renderer = {
+        highlight_git = 'name',
+        icons = {
+          show = {
+            file = false,
+            folder = false,
+            folder_arrow = true,
+            git = false,
+            modified = true,
+            hidden = false,
+            diagnostics = true,
+            bookmarks = true,
+          },
+        },
+      },
     }
   end,
 }
