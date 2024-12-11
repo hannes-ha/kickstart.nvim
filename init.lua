@@ -66,11 +66,6 @@ vim.opt.cursorline = false
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 20
 
--- Remove diagnostics from the sign column
-vim.diagnostic.config {
-  signs = false,
-}
-
 -- Tab width 4 spaces
 vim.o.tabstop = 4
 
