@@ -10,6 +10,8 @@ return {
         header = 'NVIM v' .. vim.version().major .. '.' .. vim.version().minor .. '.' .. vim.version().patch,
         keys = {
           { icon = ' ', key = 'e', desc = 'Find File', action = ":lua Snacks.dashboard.pick('files')" },
+          { icon = ' ', key = 'b', desc = 'Browse', action = ':Telescope file_browser' },
+          { icon = ' ', key = 'g', desc = 'Git', action = ':lua Snacks.lazygit()' },
           { icon = ' ', key = 'n', desc = 'New File', action = ':ene | startinsert' },
           { icon = ' ', key = 'f', desc = 'Find Text', action = ":lua Snacks.dashboard.pick('live_grep')" },
           { icon = ' ', key = 'r', desc = 'Recent Files', action = ":lua Snacks.dashboard.pick('oldfiles')" },
@@ -19,19 +21,7 @@ return {
       },
       sections = {
         { section = 'header' },
-        { section = 'keys', padding = 1 },
-        {
-          icon = ' ',
-          title = 'Git',
-          section = 'terminal',
-          enabled = function()
-            return Snacks.git.get_root() ~= nil
-          end,
-          cmd = 'git --no-pager diff --stat -B -M -C',
-          height = 5,
-          indent = 1,
-          ttl = 5 * 60,
-        },
+        { section = 'keys', gap = 1 },
       },
     },
     -- prettier notifications
