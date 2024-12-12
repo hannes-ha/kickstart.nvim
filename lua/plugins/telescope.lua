@@ -46,10 +46,18 @@ return {
 
       -- [[ Configure Telescope ]]
       -- See `:help telescope` and `:help telescope.setup()`
+      local actions = require 'telescope.actions'
       local fb_actions = require('telescope').extensions.file_browser.actions
       require('telescope').setup {
         -- You can put your default mappings / updates / etc. in here
         --  All the info you're looking for is in `:help telescope.setup()`
+        defaults = {
+          mappings = {
+            ['n'] = {
+              ['q'] = actions.close,
+            },
+          },
+        },
         extensions = {
           file_browser = {
             initial_mode = 'normal',
@@ -58,7 +66,7 @@ return {
             mappings = {
               ['n'] = {
                 ['h'] = fb_actions.goto_parent_dir,
-                ['l'] = fb_actions.change_cwd,
+                ['l'] = fb_actions.open_dir,
                 ['H'] = fb_actions.toggle_hidden,
               },
             },
