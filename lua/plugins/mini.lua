@@ -27,6 +27,9 @@ return { -- Collection of various small independent plugins/modules
     -- autoclose parens
     require('mini.pairs').setup {}
 
+    require('mini.files').setup {}
+    vim.keymap.set('n', '<leader>e', MiniFiles.open, { desc = 'Open file browser' })
+
     -- You can configure sections in the statusline by overriding their
     -- default behavior. For example, here we set the section for
     -- cursor location to LINE:COLUMN
