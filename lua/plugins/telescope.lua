@@ -47,7 +47,6 @@ return {
       -- [[ Configure Telescope ]]
       -- See `:help telescope` and `:help telescope.setup()`
       local actions = require 'telescope.actions'
-      local fb_actions = require('telescope').extensions.file_browser.actions
       require('telescope').setup {
         -- You can put your default mappings / updates / etc. in here
         --  All the info you're looking for is in `:help telescope.setup()`
@@ -55,20 +54,6 @@ return {
           mappings = {
             ['n'] = {
               ['q'] = actions.close,
-            },
-          },
-        },
-        extensions = {
-          file_browser = {
-            initial_mode = 'normal',
-            -- disables netrw and use telescope-file-browser in its place
-            hijack_netrw = true,
-            mappings = {
-              ['n'] = {
-                ['h'] = fb_actions.goto_parent_dir,
-                ['l'] = fb_actions.open_dir,
-                ['H'] = fb_actions.toggle_hidden,
-              },
             },
           },
         },
@@ -115,15 +100,6 @@ return {
       vim.keymap.set('n', '<leader>sn', function()
         builtin.find_files { cwd = vim.fn.stdpath 'config' }
       end, { desc = '[S]earch [N]eovim files' })
-    end,
-  },
-
-  -- file browser plugin
-  {
-    'nvim-telescope/telescope-file-browser.nvim',
-    dependencies = { 'nvim-telescope/telescope.nvim', 'nvim-lua/plenary.nvim' },
-    config = function()
-      vim.keymap.set('n', '<leader>e', ':Telescope file_browser<CR>')
     end,
   },
 }
