@@ -10,7 +10,6 @@ return {
         header = 'NVIM v' .. vim.version().major .. '.' .. vim.version().minor .. '.' .. vim.version().patch,
         keys = {
           { icon = ' ', key = 'e', desc = 'Find File', action = ":lua Snacks.dashboard.pick('files')" },
-          { icon = ' ', key = 'b', desc = 'Browse', action = ':Telescope file_browser' },
           { icon = ' ', key = 'g', desc = 'Git', action = ':lua Snacks.lazygit()' },
           { icon = ' ', key = 'n', desc = 'New File', action = ':ene | startinsert' },
           { icon = ' ', key = 'f', desc = 'Find Text', action = ":lua Snacks.dashboard.pick('live_grep')" },
