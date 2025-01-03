@@ -27,8 +27,17 @@ return { -- Collection of various small independent plugins/modules
     -- autoclose parens
     require('mini.pairs').setup {}
 
-    require('mini.files').setup {}
-    vim.keymap.set('n', '<leader>e', MiniFiles.open, { desc = 'Open file browser' })
+    require('mini.files').setup {
+      options = {
+        use_as_default_explorer = false,
+      },
+    }
+
+    local closeOrRevealCurrent = function()
+      local _ = MiniFiles.close() or MiniFiles.open(vim.api.nvim_buf_get_name(0), false)
+      MiniFiles.reveal_cwd()
+    end
+    vim.keymap.set('n', '<leader>e', closeOrRevealCurrent, { desc = 'Open file browser' })
 
     -- You can configure sections in the statusline by overriding their
     -- default behavior. For example, here we set the section for
