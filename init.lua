@@ -106,6 +106,7 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 -- Ctrl-q to close current buffer
 vim.keymap.set('n', '<C-q>', ':bd<CR>')
 
+vim.keymap.set('n', '<leader>w', ':w<CR>')
 -- <leader> p to paste without yanking
 vim.keymap.set('x', '<leader>p', [["_dP]])
 -- [[ Basic Autocommands ]]
