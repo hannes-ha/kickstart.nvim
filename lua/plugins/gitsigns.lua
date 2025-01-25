@@ -1,4 +1,3 @@
--- Adds git related signs to the gutter, as well as utilities for managing changes
 return {
   'lewis6991/gitsigns.nvim',
   opts = {
@@ -10,7 +9,7 @@ return {
         vim.keymap.set(mode, l, r, opts)
       end
       local gitsigns = require 'gitsigns'
-      map('n', '<leader>hn', gitsigns.next_hunk)
+      map('n', '<leader>hn', gitsigns.nav_hunk)
       map('n', '<leader>hs', gitsigns.stage_hunk)
       map('n', '<leader>hr', gitsigns.reset_hunk)
       map('v', '<leader>hs', function()
@@ -23,14 +22,7 @@ return {
       map('n', '<leader>hu', gitsigns.undo_stage_hunk)
       map('n', '<leader>hR', gitsigns.reset_buffer)
       map('n', '<leader>hp', gitsigns.preview_hunk)
-      map('n', '<leader>hb', function()
-        gitsigns.blame_line { full = true }
-      end)
       map('n', '<leader>tb', gitsigns.toggle_current_line_blame)
-      map('n', '<leader>hd', gitsigns.diffthis)
-      map('n', '<leader>hD', function()
-        gitsigns.diffthis '~'
-      end)
       map('n', '<leader>td', gitsigns.toggle_deleted)
     end,
   },
