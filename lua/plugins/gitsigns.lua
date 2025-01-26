@@ -9,7 +9,9 @@ return {
         vim.keymap.set(mode, l, r, opts)
       end
       local gitsigns = require 'gitsigns'
-      map('n', '<leader>hn', gitsigns.nav_hunk)
+      map('n', '<leader>hn', function()
+        gitsigns.nav_hunk 'next'
+      end)
       map('n', '<leader>hs', gitsigns.stage_hunk)
       map('n', '<leader>hr', gitsigns.reset_hunk)
       map('v', '<leader>hs', function()
