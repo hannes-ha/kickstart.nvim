@@ -76,7 +76,7 @@ return {
   {
     '<leader>gs',
     function()
-      Snacks.picker.git_status()
+      Snacks.picker.git_diff()
     end,
     desc = 'Git Status',
   },
