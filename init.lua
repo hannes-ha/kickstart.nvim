@@ -115,8 +115,6 @@ vim.opt.rtp:prepend(lazypath)
 require('lazy').setup {
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
-  -- "gc" to comment visual regions/lines
-  { 'numToStr/Comment.nvim', opts = {} },
   -- load plugins in /lua/plugins folder
   { import = 'plugins' },
 }

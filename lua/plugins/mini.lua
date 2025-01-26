@@ -5,6 +5,7 @@ return {
     require('mini.surround').setup()
     require('mini.icons').setup {}
     require('mini.pairs').setup {}
+    require('mini.comment').setup {}
 
     -- file browser
     require('mini.files').setup {
