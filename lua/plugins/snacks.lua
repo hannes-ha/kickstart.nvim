@@ -19,6 +19,7 @@ return {
     git = { enabled = true },
     statuscolumn = { enabled = true },
     lazygit = { enabled = true },
+    input = { enabled = true },
     picker = { enabled = true },
   },
   keys = require 'keymap.snacks',
