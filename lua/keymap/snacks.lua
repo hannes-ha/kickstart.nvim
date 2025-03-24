@@ -190,4 +190,11 @@ return {
     end,
     desc = 'LSP Symbols',
   },
+  {
+    '<leader>nh',
+    function()
+      Snacks.picker.notifications()
+    end,
+    desc = 'Notification History',
+  },
 }
